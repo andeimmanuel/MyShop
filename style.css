@@ -827,6 +827,60 @@ main > div .heading {
   opacity: 0;
 }
 
+/* By category */
+
+.bycats .heading {
+  display: flex;
+  justify-content: center;
+}
+
+.bycats .heading > span {
+  font-family: var(--secondary-text);
+  font-size: 32px;
+  margin-right: 20px;
+}
+.bycats .heading > span,
+.opt-trigger {
+  height: 44px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+}
+
+.sort-list .wrap {
+  position: relative;
+}
+
+.sort-list .wrap ul {
+  position: absolute;
+  text-align: left;
+  top: 50px;
+  left: 0;
+  right: 0;
+  background-color: var(--white-color);
+  box-shadow: var(--shadow);
+  z-index: 10;
+  display: none;
+  animation: var(--fade);
+}
+
+.sort-list .wrap ul.show {
+  display: block;
+}
+.sort-list ul li a {
+  display: block;
+  padding: 5px 20px;
+  transition: var(--transition-background), var(--transition-color);
+}
+
+.sort-list ul li a:hover,
+.sort-list ul li.active a {
+  background-color: var(--dark-color);
+  color: var(--white-color);
+}
+
 @media (max-width: 480px) {
   .carousel .dotgrid .item {
     width: 270px;

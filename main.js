@@ -37,6 +37,29 @@ submenu.forEach((menu) =>
   })
 );
 
+// sorter
+
+const sorter = document.querySelector(".sort-list");
+if (sorter) {
+  const sortLi = sorter.querySelector("li");
+  sorter.querySelector(".opt-trigger").addEventListener("click", function () {
+    sorter.querySelector("ul").classList.toggle("show");
+  });
+
+  sortLi.forEach((item) =>
+    item.addEventListener("click", function () {
+      sortLi.forEach((li) =>
+        li != this ? li.classList.remove("active") : null
+      );
+
+      this.classList.add("active");
+      sorter.querySelector(".opt-trigger span.value").textContent =
+        this.textContent;
+      sorter.querySelector("ul").classList.toggle("show");
+    })
+  );
+}
+
 // slider
 
 const swiper = new Swiper(".sliderbox", {
