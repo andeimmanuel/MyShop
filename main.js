@@ -41,24 +41,54 @@ submenu.forEach((menu) =>
 
 const sorter = document.querySelector(".sort-list");
 if (sorter) {
-  const sortLi = sorter.querySelector("li");
+  const sortLi = sorter.querySelectorAll("li"); // Use querySelectorAll to get all list items
   sorter.querySelector(".opt-trigger").addEventListener("click", function () {
     sorter.querySelector("ul").classList.toggle("show");
   });
 
-  sortLi.forEach((item) =>
-    item.addEventListener("click", function () {
-      sortLi.forEach((li) =>
-        li != this ? li.classList.remove("active") : null
-      );
+  Array.from(sortLi).forEach(
+    (
+      item // Corrected iteration
+    ) =>
+      item.addEventListener("click", function () {
+        Array.from(sortLi).forEach(
+          (
+            li // Corrected iteration
+          ) => (li != this ? li.classList.remove("active") : null)
+        );
 
-      this.classList.add("active");
-      sorter.querySelector(".opt-trigger span.value").textContent =
-        this.textContent;
-      sorter.querySelector("ul").classList.toggle("show");
-    })
+        this.classList.add("active");
+        sorter.querySelector(".opt-trigger span.value").textContent =
+          this.textContent;
+        sorter.querySelector("ul").classList.toggle("show");
+      })
   );
 }
+
+// tabbed
+
+const trigger = document.querySelectorAll(".tabbed-trigger");
+const content = document.querySelectorAll(".tabbed > div");
+
+trigger.forEach((btn) => {
+  btn.addEventListener("click", function () {
+    const dataTarget = this.dataset.id;
+    const body = document.querySelector(`#${dataTarget}`);
+
+    // Remove 'active' class from all triggers and body elements
+    trigger.forEach((b) => b.parentNode.classList.remove("active"));
+    trigger.forEach((s) => s.classList.remove("active"));
+    content.forEach((c) => c.classList.remove("active"));
+
+    // Add 'active' class to the clicked trigger and the corresponding body element
+    this.parentNode.classList.add("active");
+    if (body) {
+      body.classList.add("active");
+    } else {
+      console.error(`Element with ID #${dataTarget} not found`);
+    }
+  });
+});
 
 // slider
 
