@@ -669,7 +669,7 @@ form :where(input, textarea, select)::placeholder {
 }
 
 .slider .ob-cover {
-  height: 430px;
+  height: 660px;
 }
 
 .ob-cover img {
