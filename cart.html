@@ -19,11 +19,11 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
-    <title>Category Page</title>
+    <title>Cart Page</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div id="page" class="page-category">
+    <div id="page" class="page-cart">
       <header>
         <div class="inner-header">
           <div class="container wide">
@@ -318,8 +318,7 @@
               <div class="breadcrumb list-inline">
                 <ul>
                   <li><a href="index.html">Home</a></li>
-                  <li><a href="shop.html">Products</a></li>
-                  <li><span>Sweater</span></li>
+                  <li><span>Cart</span></li>
                 </ul>
               </div>
             </div>
@@ -347,457 +346,165 @@
           <div class="container wide">
             <div class="wrap">
               <div class="heading">
-                <h1 class="title">Sweater</h1>
+                <h1 class="title">Cart</h1>
               </div>
               <div class="content">
-                <div id="sidebar-filter" class="sidebar">
-                  <div class="wrap">
-                    <a href="#0" class="close-trigger" close-button>
-                      <i class="ri-close-line"></i>
-                    </a>
-                    <div class="sidebar-content">
-                      <div class="sidebar-title">Filter</div>
-                      <div class="widget">
-                        <div class="summary">
-                          <input type="checkbox" name="cats" id="aaa" checked />
-                          <label for="aaa">
-                            <span>Size</span>
-                            <i class="ri-arrow-down-s-line"></i>
-                          </label>
-                          <div class="accord product-size">
-                            <div class="wrap">
-                              <button>S</button>
-                              <button>M</button>
-                              <button>L</button>
-                              <button>XL</button>
-                              <button>XXL</button>
+                <div class="cart-table">
+                  <div class="product-list has-bg">
+                    <div class="table-title">
+                      <ul>
+                        <li class="dotgrid">
+                          <div class="grouping wrapper">
+                            <span></span>
+                            <span>Product</span>
+                          </div>
+                          <div class="grouping wrapper">
+                            <span>Price</span>
+                            <span>Qty</span>
+                            <span>Total</span>
+                            <span></span>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="table-content">
+                      <ul>
+                        <li class="dotgrid">
+                          <div class="grouping wrapper">
+                            <div class="thumbnail ob-cover">
+                              <a href=""><img src="img/product_08.jpg" /></a>
+                            </div>
+                            <div class="variats">
+                              <h4 class="dot-title">
+                                <a href="">Lovers Red Sweater</a>
+                              </h4>
+                              <div class="color grey-color">
+                                <span>Color:</span>
+                                <span>Tosca</span>
+                              </div>
+                              <div class="size grey-color">
+                                <span>Size:</span>
+                                <span>XL</span>
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      </div>
-                      <div class="widget">
-                        <div class="summary">
-                          <input type="checkbox" name="cats" id="aab" checked />
-                          <label for="aab">
-                            <span>Colors</span>
-                            <i class="ri-arrow-down-s-line"></i>
-                          </label>
-                          <div class="accord product-color">
-                            <div class="wrap">
-                              <button class="ande"></button>
-                              <button class="brown"></button>
-                              <button class="ocean"></button>
+                          <div class="grouping wrapper">
+                            <div class="price">$225.00</div>
+                            <div class="quantity">
+                              <div class="control">
+                                <button>-</button>
+                                <input type="text" value="1" />
+                                <button>+</button>
+                              </div>
+                            </div>
+                            <div class="price-sub">$225.00</div>
+                            <a href="" class="item-remove">
+                              <i class="ri-close-line"></i>
+                            </a>
+                          </div>
+                        </li>
+                        <li class="dotgrid">
+                          <div class="grouping wrapper">
+                            <div class="thumbnail ob-cover">
+                              <a href=""><img src="img/product_07.jpg" /></a>
+                            </div>
+                            <div class="variats">
+                              <h4 class="dot-title">
+                                <a href="">Boo Pink</a>
+                              </h4>
+                              <div class="color grey-color">
+                                <span>Color:</span>
+                                <span>Pink</span>
+                              </div>
+                              <div class="size grey-color">
+                                <span>Size:</span>
+                                <span>L</span>
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      </div>
-                      <div class="widget">
-                        <div class="summary">
-                          <input type="checkbox" name="cats" id="aac" checked />
-                          <label for="aac">
-                            <span>Categories</span>
-                            <i class="ri-arrow-down-s-line"></i>
-                          </label>
-                          <div class="accord list-block scrollto">
-                            <ul class="wrapper intial">
-                              <li>
-                                <a href="#0" class="active">Active Wear</a>
-                              </li>
-                              <li>
-                                <a href="#0">Beauty</a>
-                              </li>
-                              <li>
-                                <a href="#0">Candles</a>
-                              </li>
-                              <li>
-                                <a href="#0">Fashion</a>
-                              </li>
-                              <li>
-                                <a href="#0">Furniture</a>
-                              </li>
-                              <li>
-                                <a href="#0">Glasses</a>
-                              </li>
-                              <li>
-                                <a href="#0">Mat</a>
-                              </li>
-                              <li>
-                                <a href="#0">Nail Polishing</a>
-                              </li>
-                              <li>
-                                <a href="#0">Organic</a>
-                              </li>
-                              <li>
-                                <a href="#0">Backpack</a>
-                              </li>
-                              <li>
-                                <a href="#0">Bedding</a>
-                              </li>
-                              <li>
-                                <a href="#0">Coffee</a>
-                              </li>
-                              <li>
-                                <a href="#0">Living</a>
-                              </li>
-                              <li>
-                                <a href="#0">Plants</a>
-                              </li>
-                              <li>
-                                <a href="#0">Sneaker</a>
-                              </li>
-                            </ul>
+                          <div class="grouping wrapper">
+                            <div class="price">$75.00</div>
+                            <div class="quantity">
+                              <div class="control">
+                                <button>-</button>
+                                <input type="text" value="1" />
+                                <button>+</button>
+                              </div>
+                            </div>
+                            <div class="price-sub">$75.00</div>
+                            <a href="" class="item-remove">
+                              <i class="ri-close-line"></i>
+                            </a>
                           </div>
-                        </div>
-                      </div>
-                      <div class="widget">
-                        <div class="summary">
-                          <input type="checkbox" name="cats" id="aad" checked />
-                          <label for="aad">
-                            <span>Brands</span>
-                            <i class="ri-arrow-down-s-line"></i>
-                          </label>
-                          <div class="accord list-block scrollto">
-                            <ul class="wrapper intial">
-                              <li>
-                                <a href="#0" class="active">Adidas</a>
-                              </li>
-                              <li>
-                                <a href="#0">Channel</a>
-                              </li>
-                              <li>
-                                <a href="#0">Dolce & Gabbana</a>
-                              </li>
-                              <li>
-                                <a href="#0">Ganmi</a>
-                              </li>
-                              <li>
-                                <a href="#0">Gucci</a>
-                              </li>
-                              <li>
-                                <a href="#0">Louis Vuitton</a>
-                              </li>
-                              <li>
-                                <a href="#0">Nike</a>
-                              </li>
-                              <li>
-                                <a href="#0">Prada</a>
-                              </li>
-                              <li>
-                                <a href="#0">Puma</a>
-                              </li>
-                              <li>
-                                <a href="#0">Zara</a>
-                              </li>
-                            </ul>
+                        </li>
+                        <li class="dotgrid">
+                          <div class="grouping wrapper">
+                            <div class="thumbnail ob-cover">
+                              <a href=""><img src="img/product_06.jpg" /></a>
+                            </div>
+                            <div class="variats">
+                              <h4 class="dot-title">
+                                <a href="">Cool Brown</a>
+                              </h4>
+                              <div class="color grey-color">
+                                <span>Color:</span>
+                                <span>Brown</span>
+                              </div>
+                              <div class="size grey-color">
+                                <span>Size:</span>
+                                <span>M</span>
+                              </div>
+                            </div>
                           </div>
-                        </div>
-                      </div>
-                      <div class="widget">
-                        <div class="summary">
-                          <label><span>Price</span></label>
-                          <div class="range-track">
-                            <input
-                              type="range"
-                              value="25"
-                              min="0"
-                              max="500"
-                              step="1"
-                            />
+                          <div class="grouping wrapper">
+                            <div class="price">$98.00</div>
+                            <div class="quantity">
+                              <div class="control">
+                                <button>-</button>
+                                <input type="text" value="1" />
+                                <button>+</button>
+                              </div>
+                            </div>
+                            <div class="price-sub">$98.00</div>
+                            <a href="" class="item-remove">
+                              <i class="ri-close-line"></i>
+                            </a>
                           </div>
-                          <div class="price-range grey-color">
-                            <span>$30</span>
-                            <span>$500</span>
-                          </div>
-                        </div>
-                      </div>
+                        </li>
+                      </ul>
                     </div>
                   </div>
                 </div>
-                <div class="category-content">
-                  <div class="sorter">
-                    <a
-                      href="#0"
-                      class="menu-trigger"
-                      trigger-button
-                      data-target="sidebar-filter"
-                      ><i class="ri-filter-line"></i
-                    ></a>
-                    <div class="left">
-                      <span class="grey-color">Showing 9 of 35 results</span>
-                    </div>
-                    <div class="right">
-                      <div class="sort-list">
-                        <div class="wrap">
-                          <div class="opt-trigger">
-                            <span class="value">Default sorting</span>
-                            <i class="ri-arrow-down-s-line"></i>
-                          </div>
-                          <ul>
-                            <li class="active">
-                              <a href="#0">Default sorting</a>
-                            </li>
-                            <li><a href="#0">Popular</a></li>
-                            <li><a href="#0">Rating</a></li>
-                            <li><a href="#0">Latest</a></li>
-                            <li><a href="#0">Price: low to high</a></li>
-                            <li><a href="#0">Price: high to low</a></li>
-                          </ul>
+                <div class="cart-total">
+                  <div class="product-list has-bg">
+                    <div class="table-content">
+                      <div class="grouping">
+                        <div class="add-note">
+                          <textarea
+                            rows="3"
+                            placeholder="Additional Note +"
+                          ></textarea>
                         </div>
-                      </div>
-                      <div class="list-inline">
-                        <ul>
-                          <li>
-                            <a href=""><i class="ri-pause-mini-line"></i></a>
-                          </li>
-                          <li>
-                            <a href=""><i class="ri-list-check-2"></i></a>
-                          </li>
-                          <li>
-                            <a href=""><i class="ri-layout-grid-line"></i></a>
-                          </li>
-                          <li>
-                            <a href=""
-                              ><i class="ri-layout-masonry-line"></i
-                            ></a>
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="dotgrid">
-                    <div class="wrapper">
-                      <div class="item">
-                        <div class="dot-image">
-                          <a href="" class="product-permalink"></a>
-                          <div class="thumbnail">
-                            <img src="img/product_01.jpg" alt="" />
+                        <div class="sub-total">
+                          <div class="sub-pricing">
+                            <span>Subtotal</span>
+                            <span class="sub-total-price">$147.00</span>
                           </div>
-                          <div class="thumbnail hover">
-                            <img src="img/product_01b.jpg" alt="" />
+                          <div class="sub-terms">
+                            <input type="checkbox" class="checker" id="terms" />
+                            <label for="terms"
+                              >I agree to
+                              <a href="" class="grey-link"
+                                >Terms & Conditions</a
+                              ></label
+                            >
                           </div>
-                          <div class="actions">
-                            <ul>
-                              <li>
-                                <a href=""><i class="ri-star-line"></i></a>
-                              </li>
-                              <li>
-                                <a href=""
-                                  ><i class="ri-arrow-left-right-line"></i
-                                ></a>
-                              </li>
-                              <li>
-                                <a href=""><i class="ri-eye-line"></i></a>
-                              </li>
-                            </ul>
-                          </div>
-                          <div class="label">
-                            <span>-25%</span>
-                          </div>
-                        </div>
-                        <div class="dot-info">
-                          <h2 class="dot-title">
-                            <a href="">Ginger Green</a>
-                          </h2>
-                          <div class="product-price">
-                            <span class="before">$62.00</span>
-                            <span class="current">$40.00</span>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="item">
-                        <div class="dot-image">
-                          <a href="" class="product-permalink"></a>
-                          <div class="thumbnail">
-                            <img src="img/product_06.jpg" alt="" />
-                          </div>
-                          <div class="thumbnail hover">
-                            <img src="img/product_06b.jpg" alt="" />
-                          </div>
-                          <div class="actions">
-                            <ul>
-                              <li>
-                                <a href=""><i class="ri-star-line"></i></a>
-                              </li>
-                              <li>
-                                <a href=""
-                                  ><i class="ri-arrow-left-right-line"></i
-                                ></a>
-                              </li>
-                              <li>
-                                <a href=""><i class="ri-eye-line"></i></a>
-                              </li>
-                            </ul>
-                          </div>
-                          <div class="label">
-                            <span>-25%</span>
-                          </div>
-                        </div>
-                        <div class="dot-info">
-                          <h2 class="dot-title">
-                            <a href="">Ginger Brown</a>
-                          </h2>
-                          <div class="product-price">
-                            <span class="before">$69.00</span>
-                            <span class="current">$49.00</span>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="item">
-                        <div class="dot-image">
-                          <a href="" class="product-permalink"></a>
-                          <div class="thumbnail">
-                            <img src="img/product_08.jpg" alt="" />
-                          </div>
-                          <div class="thumbnail hover">
-                            <img src="img/product_08b.jpg" alt="" />
-                          </div>
-                          <div class="actions">
-                            <ul>
-                              <li>
-                                <a href=""><i class="ri-star-line"></i></a>
-                              </li>
-                              <li>
-                                <a href=""
-                                  ><i class="ri-arrow-left-right-line"></i
-                                ></a>
-                              </li>
-                              <li>
-                                <a href=""><i class="ri-eye-line"></i></a>
-                              </li>
-                            </ul>
-                          </div>
-                          <div class="label">
-                            <span>-25%</span>
-                          </div>
-                        </div>
-                        <div class="dot-info">
-                          <h2 class="dot-title">
-                            <a href="">Love Red</a>
-                          </h2>
-                          <div class="product-price">
-                            <span class="before">$620.00</span>
-                            <span class="current">$400.00</span>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="item">
-                        <div class="dot-image">
-                          <a href="" class="product-permalink"></a>
-                          <div class="thumbnail">
-                            <img src="img/product_04.jpg" alt="" />
-                          </div>
-                          <div class="thumbnail hover">
-                            <img src="img/product_04b.jpg" alt="" />
-                          </div>
-                          <div class="actions">
-                            <ul>
-                              <li>
-                                <a href=""><i class="ri-star-line"></i></a>
-                              </li>
-                              <li>
-                                <a href=""
-                                  ><i class="ri-arrow-left-right-line"></i
-                                ></a>
-                              </li>
-                              <li>
-                                <a href=""><i class="ri-eye-line"></i></a>
-                              </li>
-                            </ul>
-                          </div>
-                          <div class="label">
-                            <span>-25%</span>
-                          </div>
-                        </div>
-                        <div class="dot-info">
-                          <h2 class="dot-title">
-                            <a href="">Blue Like Sky</a>
-                          </h2>
-                          <div class="product-price">
-                            <span class="before">$72.00</span>
-                            <span class="current">$49.90</span>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="item">
-                        <div class="dot-image">
-                          <a href="" class="product-permalink"></a>
-                          <div class="thumbnail">
-                            <img src="img/product_07.jpg" alt="" />
-                          </div>
-                          <div class="thumbnail hover">
-                            <img src="img/product_07b.jpg" alt="" />
-                          </div>
-                          <div class="actions">
-                            <ul>
-                              <li>
-                                <a href=""><i class="ri-star-line"></i></a>
-                              </li>
-                              <li>
-                                <a href=""
-                                  ><i class="ri-arrow-left-right-line"></i
-                                ></a>
-                              </li>
-                              <li>
-                                <a href=""><i class="ri-eye-line"></i></a>
-                              </li>
-                            </ul>
-                          </div>
-                          <div class="label">
-                            <span>-25%</span>
-                          </div>
-                        </div>
-                        <div class="dot-info">
-                          <h2 class="dot-title">
-                            <a href="">We love Pink</a>
-                          </h2>
-                          <div class="product-price">
-                            <span class="before">$61.00</span>
-                            <span class="current">$41.00</span>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="item">
-                        <div class="dot-image">
-                          <a href="" class="product-permalink"></a>
-                          <div class="thumbnail">
-                            <img src="img/product_01.jpg" alt="" />
-                          </div>
-                          <div class="thumbnail hover">
-                            <img src="img/product_01b.jpg" alt="" />
-                          </div>
-                          <div class="actions">
-                            <ul>
-                              <li>
-                                <a href=""><i class="ri-star-line"></i></a>
-                              </li>
-                              <li>
-                                <a href=""
-                                  ><i class="ri-arrow-left-right-line"></i
-                                ></a>
-                              </li>
-                              <li>
-                                <a href=""><i class="ri-eye-line"></i></a>
-                              </li>
-                            </ul>
-                          </div>
-                          <div class="label">
-                            <span>-25%</span>
-                          </div>
-                        </div>
-                        <div class="dot-info">
-                          <h2 class="dot-title">
-                            <a href="">Ginger Green</a>
-                          </h2>
-                          <div class="product-price">
-                            <span class="before">$62.00</span>
-                            <span class="current">$40.00</span>
+                          <div class="button">
+                            <a href="" class="secondary-btn">Checkout</a>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div class="button">
-                    <a href="" class="primary-btn">Load more</a>
                   </div>
                 </div>
               </div>
@@ -805,6 +512,7 @@
           </div>
         </div>
       </main>
+
       <footer>
         <div class="inner-footer">
           <div class="container">
@@ -1139,7 +847,7 @@
           ><i class="ri-star-line"></i>
           <span class="item-floating">7</span>
         </a>
-        <a href="#0" trigger-button data-target=""
+        <a href="#0" trigger-button data-target="data-cart"
           ><i class="ri-shopping-bag-line"></i>
           <span class="item-floating">3</span>
         </a>
