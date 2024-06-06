@@ -43,12 +43,12 @@
                     <li>
                       <a href=""><i class="ri-user-line"></i></a>
                     </li>
-                    <li>
+                    <!-- <li>
                       <a href=""
                         ><span class="item-floating">7</span>
                         <i class="ri-star-line"></i>
                       </a>
-                    </li>
+                    </li> -->
                   </ul>
                 </div>
               </div>
@@ -304,7 +304,7 @@
                     </li>
                     <li>
                       <a href="#0" trigger-button data-target="data-cart"
-                        ><span class="item-floating">3</span
+                        ><span class="item-floating">0</span
                         ><i class="ri-shopping-bag-line"></i
                       ></a>
                     </li>
@@ -466,8 +466,8 @@
                           <button class="increase">+</button>
                         </div>
                         <div class="addcart button">
-                          <button type="submit" class="primary-btn">
-                            Add To Cart
+                          <button type="submit" class="primary-btn cart-add">
+                            <a href="">Add to Cart</a>
                           </button>
                         </div>
                         <div class="buynow button">
@@ -805,6 +805,9 @@
                           <span class="before">$62.00</span>
                           <span class="current">$40.00</span>
                         </div>
+                        <button class="cart-add">
+                          <a href="">Add to Cart</a>
+                        </button>
                       </div>
                     </div>
                     <div class="item swiper-slide">
@@ -843,6 +846,9 @@
                           <span class="before">$356.00</span>
                           <span class="current">$245.00</span>
                         </div>
+                        <button class="cart-add">
+                          <a href="">Add to Cart</a>
+                        </button>
                       </div>
                     </div>
                     <div class="item swiper-slide">
@@ -881,6 +887,9 @@
                           <span class="before">$300.00</span>
                           <span class="current">$255.00</span>
                         </div>
+                        <button class="cart-add">
+                          <a href="">Add to Cart</a>
+                        </button>
                       </div>
                     </div>
                     <div class="item swiper-slide">
@@ -919,6 +928,9 @@
                           <span class="before">$100.00</span>
                           <span class="current">$79.00</span>
                         </div>
+                        <button class="cart-add">
+                          <a href="">Add to Cart</a>
+                        </button>
                       </div>
                     </div>
                     <div class="item swiper-slide">
@@ -957,6 +969,9 @@
                           <span class="before">$115.00</span>
                           <span class="current">$90.00</span>
                         </div>
+                        <button class="cart-add">
+                          <a href="">Add to Cart</a>
+                        </button>
                       </div>
                     </div>
                     <div class="item swiper-slide">
@@ -995,6 +1010,9 @@
                           <span class="before">$95.00</span>
                           <span class="current">$55.00</span>
                         </div>
+                        <button class="cart-add">
+                          <a href="">Add to Cart</a>
+                        </button>
                       </div>
                     </div>
                     <div class="item swiper-slide">
@@ -1033,6 +1051,9 @@
                           <span class="before">$80.00</span>
                           <span class="current">$50.00</span>
                         </div>
+                        <button class="cart-add">
+                          <a href="">Add to Cart</a>
+                        </button>
                       </div>
                     </div>
                     <div class="item swiper-slide">
@@ -1071,6 +1092,9 @@
                           <span class="before">$69.00</span>
                           <span class="current">$45.00</span>
                         </div>
+                        <button class="cart-add">
+                          <a href="">Add to Cart</a>
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -1364,11 +1388,11 @@
                   <h3>Shopping Cart</h3>
                 </div>
                 <div class="cart-body scrollto">
-                  <div class="product-list">
-                    <div class="wrapper">
-                      <ul>
-                        <li>
-                          <div class="grouping">
+                  <div class="product-list scrollto">
+                    <div class="wrapper scrollto testing">
+                      <ul class="carting-box">
+                        <li class="test">
+                          <!-- <div class="grouping">
                             <div class="quantity">
                               <div class="control">
                                 <button>-</button>
@@ -1458,7 +1482,7 @@
                             <a href="" class="item-remove">
                               <i class="ri-close-line"></i>
                             </a>
-                          </div>
+                          </div> -->
                         </li>
                       </ul>
                     </div>
@@ -1475,7 +1499,7 @@
                     <ul>
                       <li>
                         <span>Subtotal</span>
-                        <span class="value"></span>
+                        <span class="value" id="subtotal-value"></span>
                       </li>
                       <ul>
                         <li><span>Shipping</span></li>
@@ -1496,6 +1520,7 @@
                               type="radio"
                               class="checker"
                               name="shipping"
+                              value="20"
                             />
                             <label for="">Flat</label>
                           </div>
@@ -1508,7 +1533,7 @@
                       </li>
                       <li class="total">
                         <span>Total</span>
-                        <span class="value">$147.00</span>
+                        <span class="value" id="total-value">$0.00</span>
                       </li>
                     </ul>
                   </div>

@@ -43,12 +43,12 @@
                     <li>
                       <a href=""><i class="ri-user-line"></i></a>
                     </li>
-                    <li>
+                    <!-- <li>
                       <a href=""
                         ><span class="item-floating">7</span>
                         <i class="ri-star-line"></i>
                       </a>
-                    </li>
+                    </li> -->
                   </ul>
                 </div>
               </div>
@@ -304,7 +304,7 @@
                     </li>
                     <li>
                       <a href="#0" trigger-button data-target="data-cart"
-                        ><span class="item-floating">3</span
+                        ><span class="item-floating">0</span
                         ><i class="ri-shopping-bag-line"></i
                       ></a>
                     </li>
@@ -602,6 +602,9 @@
                             <span class="before">$62.00</span>
                             <span class="current">$40.00</span>
                           </div>
+                          <button class="cart-add">
+                            <a href="">Add to Cart</a>
+                          </button>
                         </div>
                       </div>
                       <div class="item">
@@ -640,6 +643,9 @@
                             <span class="before">$69.00</span>
                             <span class="current">$49.00</span>
                           </div>
+                          <button class="cart-add">
+                            <a href="">Add to Cart</a>
+                          </button>
                         </div>
                       </div>
                       <div class="item">
@@ -678,6 +684,9 @@
                             <span class="before">$620.00</span>
                             <span class="current">$400.00</span>
                           </div>
+                          <button class="cart-add">
+                            <a href="">Add to Cart</a>
+                          </button>
                         </div>
                       </div>
                       <div class="item">
@@ -716,6 +725,9 @@
                             <span class="before">$72.00</span>
                             <span class="current">$49.90</span>
                           </div>
+                          <button class="cart-add">
+                            <a href="">Add to Cart</a>
+                          </button>
                         </div>
                       </div>
                       <div class="item">
@@ -754,6 +766,9 @@
                             <span class="before">$61.00</span>
                             <span class="current">$41.00</span>
                           </div>
+                          <button class="cart-add">
+                            <a href="">Add to Cart</a>
+                          </button>
                         </div>
                       </div>
                       <div class="item">
@@ -792,6 +807,9 @@
                             <span class="before">$62.00</span>
                             <span class="current">$40.00</span>
                           </div>
+                          <button class="cart-add">
+                            <a href="">Add to Cart</a>
+                          </button>
                         </div>
                       </div>
                     </div>
@@ -971,11 +989,11 @@
                   <h3>Shopping Cart</h3>
                 </div>
                 <div class="cart-body scrollto">
-                  <div class="product-list">
-                    <div class="wrapper">
-                      <ul>
-                        <li>
-                          <div class="grouping">
+                  <div class="product-list scrollto">
+                    <div class="wrapper scrollto testing">
+                      <ul class="carting-box">
+                        <li class="test">
+                          <!-- <div class="grouping">
                             <div class="quantity">
                               <div class="control">
                                 <button>-</button>
@@ -1065,7 +1083,7 @@
                             <a href="" class="item-remove">
                               <i class="ri-close-line"></i>
                             </a>
-                          </div>
+                          </div> -->
                         </li>
                       </ul>
                     </div>
@@ -1082,7 +1100,7 @@
                     <ul>
                       <li>
                         <span>Subtotal</span>
-                        <span class="value"></span>
+                        <span class="value" id="subtotal-value"></span>
                       </li>
                       <ul>
                         <li><span>Shipping</span></li>
@@ -1103,6 +1121,7 @@
                               type="radio"
                               class="checker"
                               name="shipping"
+                              value="20"
                             />
                             <label for="">Flat</label>
                           </div>
@@ -1115,7 +1134,7 @@
                       </li>
                       <li class="total">
                         <span>Total</span>
-                        <span class="value">$147.00</span>
+                        <span class="value" id="total-value">$0.00</span>
                       </li>
                     </ul>
                   </div>
@@ -1128,22 +1147,6 @@
             </div>
           </div>
         </div>
-      </div>
-    </div>
-
-    <div id="data-mobile-nav" class="mobile-nav">
-      <div class="wrap">
-        <a href="index.html"><i class="ri-home-4-line"></i></a>
-        <a href="#0"><i class="ri-user-line"></i></a>
-        <a href="#0"
-          ><i class="ri-star-line"></i>
-          <span class="item-floating">7</span>
-        </a>
-        <a href="#0" trigger-button data-target=""
-          ><i class="ri-shopping-bag-line"></i>
-          <span class="item-floating">3</span>
-        </a>
-        <a href="#0"><i class="ri-arrow-up-line"></i></a>
       </div>
     </div>
 

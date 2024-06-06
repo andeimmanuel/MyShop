@@ -641,9 +641,13 @@ form :where(input, textarea, select)::placeholder {
   width: 360px;
   height: 100%;
   background-color: var(--white-color);
+
   pointer-events: auto;
   transform: translateX(var(--transX, -100));
   transition: var(--transition-transform);
+}
+
+.cart-menu .wrap {
 }
 
 .mobile-menu.active .wrap,
@@ -674,6 +678,18 @@ form :where(input, textarea, select)::placeholder {
   padding: 0 20px;
   display: flex;
   flex-direction: column;
+}
+
+ul.carting-box {
+  overflow: scroll;
+}
+
+/* .test {
+  overflow: scroll;
+} */
+
+.cart-menu .cart-list {
+  overflow: scroll;
 }
 
 .mobile-menu nav > ul {
@@ -2419,6 +2435,12 @@ input[type="range"]::-webkit-slider-thumb {
   height: 54px;
 }
 
+.test {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+
 .mobile-nav a {
   position: relative;
   font-size: 20px;
@@ -2438,6 +2460,19 @@ input[type="range"]::-webkit-slider-thumb {
 .mobile-nav span {
   right: -6px;
   top: -4px;
+}
+
+/* add to cart button */
+
+.cart-add {
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: var(--primary-colour);
+  color: var(--white-color);
+  border: none;
+  text-transform: uppercase;
+  font-size: 12px;
+  margin: 2px 0 5px 0;
 }
 /* media queries */
 
@@ -2488,6 +2523,9 @@ input[type="range"]::-webkit-slider-thumb {
   .cart-table .product-list :where(.table-title, .price),
   .category-content .left span {
     display: block;
+  }
+
+  .cart-menu .cart-list {
   }
 
   .product nav ul {

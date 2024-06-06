@@ -152,3 +152,141 @@ const mainImage = new Swiper(".main-image", {
     swiper: thumbImage,
   },
 });
+
+// add to cart button
+
+document.addEventListener("DOMContentLoaded", () => {
+  const cartItemCount = document.querySelector(".item-floating");
+  const addToCartBtn = document.querySelectorAll(".cart-add a");
+  const cartItemList = document.querySelector(".product-list .wrapper");
+  const test = document.querySelector(".test");
+  const cartTotal = document.querySelector("#total-value");
+  const cartIcon = document.querySelector(".cart-icon");
+  const subtotalValue = document.querySelector("#subtotal-value");
+  const shippingOptions = document.querySelectorAll('input[name="shipping"]');
+
+  let cartItems = [];
+  let totalAmount = 0;
+  let shippingCost = 0;
+
+  addToCartBtn.forEach((button, index) => {
+    button.addEventListener("click", (event) => {
+      event.preventDefault(); // Prevent the default link behavior
+      const itemElement = button.closest(".item");
+      const item = {
+        name: itemElement.querySelector(".dot-title a").textContent,
+        price: parseFloat(
+          itemElement
+            .querySelector(".product-price .current")
+            .textContent.slice(1)
+        ),
+        image: itemElement.querySelector(".thumbnail img").src,
+        quantity: 1,
+      };
+
+      const existingItem = cartItems.find(
+        (cartItem) => cartItem.name === item.name
+      );
+      if (existingItem) {
+        existingItem.quantity++;
+      } else {
+        cartItems.push(item);
+      }
+
+      totalAmount += item.price;
+      updateCartUi();
+    });
+  });
+
+  shippingOptions.forEach((option) => {
+    option.addEventListener("change", () => {
+      shippingCost = parseFloat(option.value);
+      updateCartTotal();
+    });
+  });
+
+  function updateCartUi() {
+    updateCartItemCount(cartItems.length);
+    updateCartItemList();
+    updateCartTotal();
+  }
+
+  function updateCartItemCount(count) {
+    console.log("updating");
+    if (cartItemCount) {
+      cartItemCount.textContent = count;
+    } else {
+      console.log("not found");
+    }
+  }
+
+  function updateCartItemList() {
+    test.innerHTML = ""; // Clear existing items
+    cartItems.forEach((item) => {
+      const cartItemElement = document.createElement("div");
+      cartItemElement.className = "cart-item";
+      cartItemElement.innerHTML = `
+        <div class="grouping">
+          <div class="quantity">
+            <div class="control">
+              <button class="decrement">-</button>
+              <input type="text" value="${item.quantity}" />
+              <button class="increment">+</button>
+            </div>
+          </div>
+          <div class="thumbnail">
+            <a href="#"><img src="${item.image}" /></a>
+          </div>
+        </div>
+        <div class="variats">
+          <h4 class="dot-title"><a href="#">${item.name}</a></h4>
+          <div class="price">$${item.price.toFixed(2)}</div>
+          <a href="#" class="item-remove"><i class="ri-close-line"></i></a>
+        </div>
+      `;
+
+      // Add event listeners for increment and decrement buttons
+      cartItemElement
+        .querySelector(".increment")
+        .addEventListener("click", () => {
+          item.quantity++;
+          totalAmount += item.price;
+          updateCartUi();
+        });
+
+      cartItemElement
+        .querySelector(".decrement")
+        .addEventListener("click", () => {
+          if (item.quantity > 1) {
+            item.quantity--;
+            totalAmount -= item.price;
+          } else {
+            cartItems = cartItems.filter(
+              (cartItem) => cartItem.name !== item.name
+            );
+            totalAmount -= item.price;
+          }
+          updateCartUi();
+        });
+
+      // Add event listener for remove button
+      cartItemElement
+        .querySelector(".item-remove")
+        .addEventListener("click", () => {
+          totalAmount -= item.price * item.quantity;
+          cartItems = cartItems.filter(
+            (cartItem) => cartItem.name !== item.name
+          );
+          updateCartUi();
+        });
+
+      test.appendChild(cartItemElement);
+    });
+  }
+
+  function updateCartTotal() {
+    subtotalValue.textContent = `$${totalAmount.toFixed(2)}`;
+    const finalTotal = totalAmount + shippingCost;
+    cartTotal.textContent = `$${finalTotal.toFixed(2)}`;
+  }
+});
