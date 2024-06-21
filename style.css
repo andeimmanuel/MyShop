@@ -1797,6 +1797,7 @@ form .button {
   position: relative;
   float: left;
   padding-left: 45px;
+  margin-bottom: 50px;
 }
 
 .product-list .quantity {
@@ -2439,6 +2440,7 @@ input[type="range"]::-webkit-slider-thumb {
   display: flex;
   gap: 10px;
   flex-direction: column;
+  /* border: 1px solid red; */
 }
 
 .mobile-nav a {
@@ -2467,13 +2469,19 @@ input[type="range"]::-webkit-slider-thumb {
 .cart-add {
   padding: 5px 10px;
   border-radius: 5px;
-  background-color: var(--primary-colour);
-  color: var(--white-color);
+  border-color: var(--gray-colour);
+  color: var(--dark-color);
   border: none;
   text-transform: uppercase;
   font-size: 12px;
   margin: 2px 0 5px 0;
 }
+
+.cart-item {
+  border: 1px solid blue;
+  gap: 10px;
+}
+
 /* media queries */
 
 @media (min-width: 481px) {

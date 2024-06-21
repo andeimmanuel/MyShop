@@ -43,12 +43,12 @@
                     <li>
                       <a href=""><i class="ri-user-line"></i></a>
                     </li>
-                    <li>
+                    <!-- <li>
                       <a href=""
                         ><span class="item-floating">7</span>
                         <i class="ri-star-line"></i>
                       </a>
-                    </li>
+                    </li> -->
                   </ul>
                 </div>
               </div>
@@ -304,7 +304,7 @@
                     </li>
                     <li>
                       <a href="#0" trigger-button data-target="data-cart"
-                        ><span class="item-floating">3</span
+                        ><span class="item-floating">0</span
                         ><i class="ri-shopping-bag-line"></i
                       ></a>
                     </li>
@@ -423,9 +423,9 @@
                     <div class="wrapper">
                       <h2>Order Summary</h2>
                       <div class="product-list">
-                        <ul>
-                          <li>
-                            <div class="grouping">
+                        <ul id="checkout-cart-items">
+                          <li class="test">
+                            <!-- <div class="grouping">
                               <div class="thumbnail ob-cover">
                                 <span class="item-floating">x1</span>
                                 <img src="img/product_07.jpg" />
@@ -494,7 +494,7 @@
                               <div class="price-item">
                                 <span>$200.00</span>
                               </div>
-                            </div>
+                            </div> -->
                           </li>
                         </ul>
                       </div>
@@ -540,11 +540,11 @@
                         <ul>
                           <li>
                             <span>Subtotal</span>
-                            <span class="value">$300.00</span>
+                            <span class="value" id="subtotal-value">$0.00</span>
                           </li>
                           <li>
                             <span>Tax</span>
-                            <span class="value">$14.00</span>
+                            <span class="value" id="tax-value">$0.00</span>
                           </li>
                           <li>
                             <ul>
@@ -553,17 +553,26 @@
                               </li>
                               <li>
                                 <div>
-                                  <input type="radio" class="checker" />
+                                  <input
+                                    type="radio"
+                                    class="checker"
+                                    name="shipping"
+                                  />
                                   <label>Free</label>
                                 </div>
                                 <span class="value">$0.00</span>
                               </li>
                               <li>
                                 <div>
-                                  <input type="radio" class="checker" />
+                                  <input
+                                    type="radio"
+                                    class="checker"
+                                    name="shipping"
+                                    value="20"
+                                  />
                                   <label>Flat</label>
                                 </div>
-                                <span class="value">$10.00</span>
+                                <span class="value">$20.00</span>
                               </li>
                             </ul>
                           </li>
@@ -573,7 +582,7 @@
                           </li>
                           <li class="total">
                             <span>Total</span>
-                            <span class="value">$530.00</span>
+                            <span class="value" id="total-value">$0.00</span>
                           </li>
                         </ul>
                       </div>
@@ -759,7 +768,7 @@
                     <div class="wrapper">
                       <ul>
                         <li>
-                          <div class="grouping">
+                          <!-- <div class="grouping">
                             <div class="quantity">
                               <div class="control">
                                 <button>-</button>
@@ -849,7 +858,7 @@
                             <a href="" class="item-remove">
                               <i class="ri-close-line"></i>
                             </a>
-                          </div>
+                          </div> -->
                         </li>
                       </ul>
                     </div>
@@ -866,7 +875,7 @@
                     <ul>
                       <li>
                         <span>Subtotal</span>
-                        <span class="value"></span>
+                        <span class="value" id="subtotal-value"></span>
                       </li>
                       <ul>
                         <li><span>Shipping</span></li>
@@ -887,6 +896,7 @@
                               type="radio"
                               class="checker"
                               name="shipping"
+                              value="20"
                             />
                             <label for="">Flat</label>
                           </div>
@@ -899,7 +909,7 @@
                       </li>
                       <li class="total">
                         <span>Total</span>
-                        <span class="value">$147.00</span>
+                        <span class="value" id="total-value">$0.00</span>
                       </li>
                     </ul>
                   </div>
@@ -919,14 +929,14 @@
       <div class="wrap">
         <a href="index.html"><i class="ri-home-4-line"></i></a>
         <a href="#0"><i class="ri-user-line"></i></a>
-        <a href="#0"
+        <!-- <a href="#0"
           ><i class="ri-star-line"></i>
           <span class="item-floating">7</span>
-        </a>
+        </a> -->
         <a href="#0" trigger-button data-target="data-cart"
-          ><i class="ri-shopping-bag-line"></i>
-          <span class="item-floating">3</span>
-        </a>
+          ><span class="item-floating">0</span
+          ><i class="ri-shopping-bag-line"></i
+        ></a>
         <a href="#0"><i class="ri-arrow-up-line"></i></a>
       </div>
     </div>
