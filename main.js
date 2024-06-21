@@ -153,7 +153,7 @@ const mainImage = new Swiper(".main-image", {
   },
 });
 
-// add to cart button
+// add to cart button function + addition and reduction buttons plus total amount and tax-calculations.
 
 document.addEventListener("DOMContentLoaded", () => {
   const cartItemCount = document.querySelector(".item-floating");
@@ -161,13 +161,38 @@ document.addEventListener("DOMContentLoaded", () => {
   const cartItemList = document.querySelector(".product-list .wrapper");
   const test = document.querySelector(".test");
   const cartTotal = document.querySelector("#total-value");
-  const cartIcon = document.querySelector(".cart-icon");
   const subtotalValue = document.querySelector("#subtotal-value");
   const shippingOptions = document.querySelectorAll('input[name="shipping"]');
 
-  let cartItems = [];
-  let totalAmount = 0;
+  const checkoutCartItems = document.querySelector(
+    ".checkout-products .product-list ul"
+  );
+  const subtotalElement = document.querySelector(
+    ".math-pricing .subtotal .value"
+  );
+  const taxElement = document.querySelector(".math-pricing .tax .value");
+  const shippingElements = document.querySelectorAll(".math-pricing .checker");
+  const totalElement = document.querySelector(".math-pricing .total .value");
+
+  let cartItems = JSON.parse(localStorage.getItem("cart-items")) || [];
+  let totalAmount = cartItems.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0
+  );
   let shippingCost = 0;
+  const taxRate = 0.05; // Example tax rate
+
+  function addToCart(name, price) {
+    const existingItem = cartItems.find((cartItem) => cartItem.name === name);
+    if (existingItem) {
+      existingItem.quantity++;
+    } else {
+      cartItems.push({ name, price, quantity: 1 });
+    }
+    totalAmount += price;
+    localStorage.setItem("cart-items", JSON.stringify(cartItems));
+    updateCartUi();
+  }
 
   addToCartBtn.forEach((button, index) => {
     button.addEventListener("click", (event) => {
@@ -184,21 +209,23 @@ document.addEventListener("DOMContentLoaded", () => {
         quantity: 1,
       };
 
-      const existingItem = cartItems.find(
-        (cartItem) => cartItem.name === item.name
-      );
-      if (existingItem) {
-        existingItem.quantity++;
-      } else {
-        cartItems.push(item);
-      }
+      addToCart(item.name, item.price);
 
-      totalAmount += item.price;
-      updateCartUi();
+      button.style.backgroundColor = "#2bcbba";
+      button.style.padding = "5px 12px";
+      button.style.radius = "10px";
+      button.style.color = "white";
+      button.textContent = "Added to Cart";
+
+      setTimeout(() => {
+        button.style.backgroundColor = "";
+        button.style.color = "";
+        button.textContent = "Add to Cart";
+      }, 2000);
     });
   });
 
-  shippingOptions.forEach((option) => {
+  shippingElements.forEach((option) => {
     option.addEventListener("change", () => {
       shippingCost = parseFloat(option.value);
       updateCartTotal();
@@ -209,84 +236,150 @@ document.addEventListener("DOMContentLoaded", () => {
     updateCartItemCount(cartItems.length);
     updateCartItemList();
     updateCartTotal();
+    loadCheckoutCart();
   }
 
   function updateCartItemCount(count) {
-    console.log("updating");
     if (cartItemCount) {
       cartItemCount.textContent = count;
-    } else {
-      console.log("not found");
     }
   }
 
   function updateCartItemList() {
-    test.innerHTML = ""; // Clear existing items
-    cartItems.forEach((item) => {
-      const cartItemElement = document.createElement("div");
-      cartItemElement.className = "cart-item";
-      cartItemElement.innerHTML = `
-        <div class="grouping">
-          <div class="quantity">
-            <div class="control">
-              <button class="decrement">-</button>
-              <input type="text" value="${item.quantity}" />
-              <button class="increment">+</button>
+    if (test) {
+      test.innerHTML = "";
+      cartItems.forEach((item) => {
+        const cartItemElement = document.createElement("div");
+        cartItemElement.className = "cart-item";
+        cartItemElement.innerHTML = `
+          <div class="grouping">
+            <div class="quantity">
+              <div class="control">
+                <button class="decrement">-</button>
+                <input type="text" value="${item.quantity}" readonly />
+                <button class="increment">+</button>
+              </div>
+            </div>
+            <div class="thumbnail">
+              <a href="#"><img src="${item.image}" /></a>
             </div>
           </div>
-          <div class="thumbnail">
-            <a href="#"><img src="${item.image}" /></a>
+          <div class="variats">
+            <h4 class="dot-title"><a href="#">${item.name}</a></h4>
+            <div class="price" data-base-price="${item.price}">$${(
+          item.price * item.quantity
+        ).toFixed(2)}</div>
+            <a href="#" class="item-remove"><i class="ri-close-line"></i></a>
           </div>
-        </div>
-        <div class="variats">
-          <h4 class="dot-title"><a href="#">${item.name}</a></h4>
-          <div class="price">$${item.price.toFixed(2)}</div>
-          <a href="#" class="item-remove"><i class="ri-close-line"></i></a>
-        </div>
-      `;
+        `;
 
-      // Add event listeners for increment and decrement buttons
-      cartItemElement
-        .querySelector(".increment")
-        .addEventListener("click", () => {
-          item.quantity++;
-          totalAmount += item.price;
-          updateCartUi();
-        });
+        cartItemElement
+          .querySelector(".increment")
+          .addEventListener("click", () => {
+            item.quantity++;
+            totalAmount += item.price;
+            updateItemPrice(cartItemElement, item);
+            updateCartUi();
+          });
 
-      cartItemElement
-        .querySelector(".decrement")
-        .addEventListener("click", () => {
-          if (item.quantity > 1) {
-            item.quantity--;
-            totalAmount -= item.price;
-          } else {
+        cartItemElement
+          .querySelector(".decrement")
+          .addEventListener("click", () => {
+            if (item.quantity > 1) {
+              item.quantity--;
+              totalAmount -= item.price;
+              updateItemPrice(cartItemElement, item);
+            } else {
+              cartItems = cartItems.filter(
+                (cartItem) => cartItem.name !== item.name
+              );
+              totalAmount -= item.price;
+            }
+            updateCartUi();
+          });
+
+        cartItemElement
+          .querySelector(".item-remove")
+          .addEventListener("click", () => {
+            totalAmount -= item.price * item.quantity;
             cartItems = cartItems.filter(
               (cartItem) => cartItem.name !== item.name
             );
-            totalAmount -= item.price;
-          }
-          updateCartUi();
-        });
+            updateCartUi();
+          });
 
-      // Add event listener for remove button
-      cartItemElement
-        .querySelector(".item-remove")
-        .addEventListener("click", () => {
-          totalAmount -= item.price * item.quantity;
-          cartItems = cartItems.filter(
-            (cartItem) => cartItem.name !== item.name
-          );
-          updateCartUi();
-        });
+        test.appendChild(cartItemElement);
+      });
+    }
+  }
 
-      test.appendChild(cartItemElement);
-    });
+  function updateItemPrice(cartItemElement, item) {
+    const priceElement = cartItemElement.querySelector(".price");
+    priceElement.textContent = `$${(item.price * item.quantity).toFixed(2)}`;
   }
 
   function updateCartTotal() {
-    subtotalValue.textContent = `$${totalAmount.toFixed(2)}`;
-    const finalTotal = totalAmount + shippingCost;
-    cartTotal.textContent = `$${finalTotal.toFixed(2)}`;
+    if (subtotalValue) {
+      subtotalValue.textContent = `$${totalAmount.toFixed(2)}`;
+    }
+    const taxAmount = totalAmount * taxRate;
+    if (taxElement) {
+      taxElement.textContent = `$${taxAmount.toFixed(2)}`;
+    }
+    if (cartTotal) {
+      const finalTotal = totalAmount + taxAmount + shippingCost;
+      cartTotal.textContent = `$${finalTotal.toFixed(2)}`;
+    }
   }
+
+  function loadCheckoutCart() {
+    const cartItemsList = document.querySelector(
+      ".checkout-products .product-list ul"
+    );
+    const subtotalElement = document.querySelector(
+      ".math-pricing .subtotal .value"
+    );
+    const taxElement = document.querySelector(".math-pricing .tax .value");
+    const totalElement = document.querySelector(".math-pricing .total .value");
+
+    if (cartItemsList && subtotalElement && taxElement && totalElement) {
+      cartItemsList.innerHTML = ""; // Clear existing items
+      let totalAmount = 0;
+
+      cartItems.forEach((item) => {
+        const listItem = document.createElement("li");
+        listItem.innerHTML = `
+          <div class="grouping">
+            <div class="thumbnail ob-cover">
+              <span class="item-floating">x${item.quantity}</span>
+              <img src="${item.image}" />
+            </div>
+          </div>
+          <div class="variats">
+            <h4 class="dot-title"><a href="#">${item.name}</a></h4>
+            <div class="price-item">
+              <span>$${(item.price * item.quantity).toFixed(2)}</span>
+            </div>
+
+          </div>
+        `;
+        cartItemsList.appendChild(listItem);
+        totalAmount += item.price * item.quantity;
+      });
+
+      const taxAmount = totalAmount * taxRate;
+      subtotalElement.textContent = `$${totalAmount.toFixed(2)}`;
+      taxElement.textContent = `$${taxAmount.toFixed(2)}`;
+      totalElement.textContent = `$${(
+        totalAmount +
+        taxAmount +
+        shippingCost
+      ).toFixed(2)}`;
+    }
+  }
+
+  window.onload = function () {
+    updateCartUi();
+    loadCheckoutCart();
+  };
 });
